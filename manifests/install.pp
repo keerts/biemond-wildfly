@@ -69,10 +69,10 @@ class wildfly::install(
 
   exec { "Retrieve ${install_source} in /var/tmp":
     cwd     => '/var/tmp',
-    command => "wget  -c --no-cookies --no-check-certificate \"${install_source}\" -O ${install_file}",
+    command => "wget  -c --no-cookies --no-check-certificate \"${install_source}\" -O ${install_file}.bak",
     creates => "/var/tmp/${install_file}",
     path    => '/bin:/sbin:/usr/bin:/usr/sbin',
-    timeout => 900,
+    timeout => 9000,
   }
 
   exec { "tar ${install_file} in /var/tmp":
